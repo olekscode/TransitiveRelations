@@ -1,5 +1,4 @@
 import numpy as np
-from timer import timeit
 
 def int_to_binary_matrix(k, nrows):
     """Converts integer to its binary representation
@@ -22,7 +21,6 @@ def is_transitive(matrix):
 
     return True
 
-@timeit
 def number_of_transitive_relations(size):
     nrelations = 2 ** (size * size)
     ntransitive = 0
@@ -34,9 +32,3 @@ def number_of_transitive_relations(size):
             ntransitive += 1
 
     return ntransitive
-
-
-if __name__ == '__main__':
-    size = 4
-    ntransitive = number_of_transitive_relations(size)
-    print(ntransitive)
