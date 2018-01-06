@@ -3,12 +3,15 @@
 import sys
 import getopt
 from timer import timeit
-import simple_solution as simple
+
+import solutions.simple as simple
+import solutions.partial_order as partord
 
 @timeit
 def print_ntransitive(size, method):
    ntransitive = method.number_of_transitive_relations(size)
-   print(ntransitive)
+   print('Number of transitive relations on {}-element set: {}'\
+      .format(size, ntransitive))
 
 def main(argv):
    try:
@@ -20,7 +23,7 @@ def main(argv):
       for opt, arg in opts:
          if opt in ['-s', '--size']:
             size = int(arg)
-            print_ntransitive(size, method=simple)
+            print_ntransitive(size, method=partord)
 
          else:
             raise getopt.GetoptError(None)
